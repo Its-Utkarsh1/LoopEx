@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect Registration</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    body {
+      background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb, #f9fafb);
+    }
+
+    .hero-section {
+      position: relative;
+      height: 16rem;
+      overflow: hidden;
+    }
+
+    .hero-section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(73, 151, 241, 0.6);
+    }
+
+    .hero-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .form-container {
+      margin-top: -2rem;
+    }
+
+    .form-control:focus {
+      border-color: #1d4ed8;
+      box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+    }
+
+    button.btn-primary:hover {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <img src="/assets/photo4.jpg" alt="University campus">
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
+      <div>
+        <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
+          <svg class="bi" width="48" height="48" fill="currentColor">
+            <use href="#graduation-cap"></use>
+          </svg>
+          <h1>Campus Connect</h1>
+        </div>
+        <p class="lead">Join your university community</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Registration Form -->
+  <div class="container form-container">
+    <div class="row justify-content-center">
+        <div class="card shadow-lg rounded-lg p-4">
+          <div class="text-center mb-4">
+            <h2 class="text-primary fw-bold">Create Your Account</h2>
+            <p class="text-secondary">Connect with students, professors, and campus resources</p>
+          </div>
+
+          <form id="registerForm" action="/user/register" method="POST">
+
+            <!-- Name Fields -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="firstName" class="form-label">First Name</label>
+                <input type="text" id="firstName" name="firstName" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label for="lastName" class="form-label">Last Name</label>
+                <input type="text" id="lastName" name="lastName" class="form-control" required>
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <!-- Student ID and University -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="studentId" class="form-label">Student ID</label>
+                <input type="text" id="studentId" name="studentId" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label for="university" class="form-label">University</label>
+                <input type="text" id="university" name="university" class="form-control" required>
+              </div>
+            </div>
+
+            <!-- Major and Year -->
+            <div class="row g-3 mb-3">
+              <div class="col-md-6">
+                <label for="major" class="form-label">Major/Field of Study</label>
+                <input type="text" id="major" name="major" class="form-control" required>
+              </div>
+              <div class="col-md-6">
+                <label for="year" class="form-label">Academic Year</label>
+                <select id="year" name="year" class="form-select" required>
+                  <option value="">Select your year</option>
+                  <option value="1">1st Year</option>
+                  <option value="2">2nd Year</option>
+                  <option value="3">3rd Year</option>
+                  <option value="4">4th Year</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary w-100">Join Campus Connect</button>
+          </form>
+
+          <!-- Login Link -->
+          <div class="text-center mt-3">
+            <p class="text-secondary">Already have an account? 
+              <a href="/login" class="text-primary fw-medium">Sign in here</a>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

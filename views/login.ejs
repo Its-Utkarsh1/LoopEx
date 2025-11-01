@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Connect Hero</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to right, #3b82f6, #6366f1);
+    }
+
+    .hero-left {
+      flex: 1 1 60%;
+      padding: 2rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+      border-radius: 1rem;
+      padding: 3rem;
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .hero-card h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+    }
+
+    .hero-card h1 span {
+      display: block;
+      color: #facc15;
+    }
+
+    .hero-card p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .feature {
+      display: flex;
+      align-items: start;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 0.5rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .feature h5 {
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .feature p {
+      margin: 0;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .avatar-stack div {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      margin-left: -0.5rem;
+    }
+
+    .hero-image {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 180px;
+      height: 180px;
+      opacity: 0.2;
+      border-top-left-radius: 50%;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-right {
+      flex: 1 1 40%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 0.5rem;
+      padding: 2rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-card h1 {
+      color: #3b82f6;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .login-card p {
+      color: #6b7280;
+    }
+
+    .login-card .form-check-label {
+      font-weight: 500;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(to right, #3b82f6, #6366f1);
+      color: white;
+      font-weight: bold;
+    }
+
+    .btn-gradient:hover {
+      background: linear-gradient(to right, #2563eb, #4f46e5);
+    }
+
+    @media (max-width: 992px) {
+      body {
+        display: block;
+      }
+
+      .hero-left,
+      .hero-right {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body class="d-flex">
+
+  <!-- Left Side -->
+  <div class="hero-left">
+    <div class="hero-card">
+      <h1>Connect. Learn. <span>Grow Together.</span></h1>
+      <p>Your campus community awaits. Join thousands of students building connections, sharing knowledge, and creating
+        unforgettable experiences.</p>
+
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-sm-6">
+          <div class="feature">
+            <span>👥</span>
+            <div>
+              <h5>Connect with Peers</h5>
+              <p>Build meaningful relationships with classmates and alumni</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="feature">
+            <span>📖</span>
+            <div>
+              <h5>Study Groups</h5>
+              <p>Join or create study groups for your courses</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="feature">
+            <span>💬</span>
+            <div>
+              <h5>Campus Chat</h5>
+              <p>Stay updated with campus news and discussions</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6">
+          <div class="feature">
+            <span>📅</span>
+            <div>
+              <h5>Events & Activities</h5>
+              <p>Discover campus events and extracurricular activities</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center mt-3">
+        <div class="d-flex avatar-stack">
+          <div>A</div>
+          <div>B</div>
+          <div>C</div>
+          <div>D</div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="/assets/photo4.jpg" alt="Campus community">
+      </div>
+    </div>
+  </div>
+
+  <!-- Right Side -->
+  <div class="hero-right">
+    <div class="login-card">
+      <h1 class="text-center">Welcome Back</h1>
+      <p class="text-center mb-3">Sign in to your Campus Connect account</p>
+
+      <form action="/user/login" method="POST">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <div class="input-group">
+            <span class="input-group-text">📧</span>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <div class="input-group">
+            <span class="input-group-text">🔒</span>
+            <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password"
+              required>
+          </div>
+        </div>
+
+
+
+        <div class="d-flex justify-content-end mb-3">
+          <a href="/forgetPassword" class="text-decoration-none">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-gradient w-100 mb-3">Sign In →</button>
+
+        <p class="small text-center">
+          Don’t have an account? <a href="/register" class="fw-bold text-primary">Sign up here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

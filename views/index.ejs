@@ -28,8 +28,7 @@
 
 <body>
     <%- include('partials/nav') %>
-
-        <div class="slide-up" id="page1">
+        <div class="slide-up" id="page1" style="margin-top: -10px;">
             <h1>Connect</h1>
             <h1>with Campus</h1>
         </div>
@@ -39,10 +38,10 @@
                 id="welcome-section">
 
                 <!-- Heading -->
-                <div class="text-white" style="margin-bottom: -40px;  font-weight: 700;">
+                <div id="heading1" class="text-white" style="font-weight: 700;">
                     Together,
                 </div>
-                <div style="color: rgb(39, 54, 97);  font-weight: 800;">
+                <div style="color: rgb(39, 54, 97);  font-weight: 700;">
                     We Thrive on Campus
                 </div>
 
@@ -215,14 +214,14 @@
                 </div>
             </div>
         </div>
-        <div id="page3" class="page3" style="height: 65vh; background-color: #565e66; ">
+        <div id="page3" class="page3" style="min-height: 65vh; background-color: #565e66; ">
             <div class="exp d-flex flex-column align-items-center text-center">
 
                 <!-- Heading -->
-                <div class="text-white" style="margin-bottom: -40px; margin-top: 7rem;  font-weight: 700;">
+                <div id="page3heading1" class="text-white" style="font-weight: 700;">
                     Ready to Transform Your
                 </div>
-                <div style="color: rgb(39, 54, 97);  font-weight: 800;">
+                <div id="page3heading2" style="color: rgb(39, 54, 97);  font-weight: 800;">
                     Campus Experience?
                 </div>
 
@@ -327,7 +326,7 @@
             crossorigin="anonymous"></script>
         <script>
             function loadingAnimation() {
-                gsap.from("#page1 h1, #features ,#page3", {
+                gsap.from("#page1 h1, #features ,#page3" , {
                     y: 100,           // start 100px below
                     opacity: 0,       // start invisible
                     delay: 0.5,       // small delay before animation

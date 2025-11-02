@@ -1,0 +1,68 @@
+/* Custom Styles */
+body {
+    background: linear-gradient(to bottom right, #f3f4f6, #e5e7eb, #f9fafb);
+}
+
+.hero-section {
+    position: relative;
+    height: 16rem;
+    overflow: hidden;
+}
+
+.hero-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(73, 151, 241, 0.6);
+}
+
+.hero-text {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+#formregister {
+    margin-top: 20px;
+}
+
+.form-container {
+    margin-top: -2rem;
+}
+
+.form-control:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 0.2rem rgba(59, 130, 246, 0.25);
+}
+
+button.btn-primary:hover {
+    background-color: #1e40af;
+}
+
+@media (max-width: 768px) {
+    .lead {
+        margin-right: 3rem;
+    }
+
+    #head {
+        margin-right: 3rem;
+    }
+
+    #formregister {
+        margin-top: 0px;
+    }
+}

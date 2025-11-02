@@ -43,7 +43,7 @@ async function handleUserRegister(req, res) {
 
 async function handleUserLogin(req, res) {
     try {
-        const { email, password, role } = req.body;
+        const { email, password } = req.body;
 
         //Validate the input
         if (!email || !password) {

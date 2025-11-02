@@ -2,11 +2,8 @@ const { validateToken } = require('../service/authentication');
 const User = require('../models/User');
 
 async function checkForAuthentication(req, res, next) {
-  console.log("🔹 checkForAuthentication called");
-
   const token = req.cookies.token;
   if (!token) {
-    console.log("❌ No token found");
     res.locals.user = null;
     req.user = null;
     return next(); // ✅ Important: stop here if no token

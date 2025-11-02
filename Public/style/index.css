@@ -6,6 +6,13 @@
   text-transform: uppercase;
 }
 
+*::selection {
+    color: white;
+    background-color: black;
+}
+
+
+
 
 #welcome-section {
     font-family: sans-serif;

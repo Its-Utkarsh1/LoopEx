@@ -5,7 +5,7 @@ const connectToDB = require("./connect");
 
 const { checkForAuthentication, setUserInLocals } = require("./middlewares/auth");
 
-const Event = require('./models/Event'); 
+const Event = require('./models/Event');
 const Resource = require('./models/Resource');
 
 const userRouter = require("./router/user");
@@ -29,44 +29,38 @@ app.use(cookieParser());
 app.use(checkForAuthentication);
 app.use(setUserInLocals);
 
-
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-
 
 // ================== Routes ==================
 
 app.get("/", (req, res) => {
-  console.log("GET / called — rendering index.ejs");
   res.render("index", { user: req.user }, (err, html) => {
     if (err) {
       console.error("❌ Render error:", err);
       return res.status(500).send("Error rendering page");
     }
-    console.log("✅ Rendered successfully");
     res.send(html);
   });
 });
 
-
 // Connect to MongoDB
 connectToDB("mongodb://localhost:27017/ConnectCampus")
-    .then(() => console.log("Connected to MongoDB"))
-    .catch(err => console.error("MongoDB connection error:", err));
+  .then(() => console.log("Connected to MongoDB"))
+  .catch(err => console.error("MongoDB connection error:", err));
 
 
 app.use("/user", userRouter);
-app.use("/admin",eventRouter);
+app.use("/admin", eventRouter);
 app.use("/resource", resourceRouter);
-app.use("/lostFound",lostFoundRouter);
+app.use("/lostFound", lostFoundRouter);
 
 //Render pages
-app.get("/index", (req,res) =>{res.render("index");});
+app.get("/index", (req, res) => { res.render("index"); });
 app.get("/login", (req, res) => { res.render("login"); });
 app.get("/register", (req, res) => { res.render("register"); });
-app.get("/forgetPassword", (req,res) =>{res.render("forgetPassword");});
-app.get("/verifyOtp", (req,res) => {res.render("verifyOtp");});
-app.get("/resetPassword", (req,res) => {res.render("resetPassword");});
+app.get("/forgetPassword", (req, res) => { res.render("forgetPassword"); });
+app.get("/verifyOtp", (req, res) => { res.render("verifyOtp"); });
+app.get("/resetPassword", (req, res) => { res.render("resetPassword"); });
 app.get("/api/events", async (req, res) => {
   try {
     const events = await Event.find().sort({ date: 1 });
@@ -93,12 +87,8 @@ app.get('/api/resources', async (req, res) => {
   }
 });
 
-
 app.get("/lostFound", (req, res) => { res.render("lostFound"); });
 
-
-
-
 app.listen(PORT, () => {
-    console.log(`Server is Running on http://localhost:${PORT}`);
+  console.log(`Server is Running on http://localhost:${PORT}`);
 });

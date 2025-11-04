@@ -15,7 +15,6 @@ const handleGetAllItems = async (req, res) => {
 const handleLostItem = async (req, res) => {
   try {
     const { type, category, title, description, location, date, contact } = req.body;
-    const imageUrl = req.file ? `/uploads/${req.file.filename}` : null;
 
     const newItem = new LostFound({
       type,

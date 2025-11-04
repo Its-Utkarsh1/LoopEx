@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
 const { handleGetAllItems, handleLostItem, handleDeleteItem } = require("../controller/lostFound");
-const authMiddleware = require("../middleware/auth");
+const { checkForAuthentication } = require("../middlewares/auth");
 
 // --- Routes ---
 router.get("/getItem", handleGetAllItems);
 router.post("/report", handleLostItem);
-router.delete("/:id",authMiddleware,  handleDeleteItem);
+router.delete("/:id", checkForAuthentication,  handleDeleteItem);
 
 module.exports = router;

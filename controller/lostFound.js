@@ -25,7 +25,6 @@ const handleLostItem = async (req, res) => {
       location,
       date,
       contact,
-      imageUrl,
       reportedBy: req.user ? req.user._id : null, // optional if using authentication
     });
 
@@ -37,7 +36,32 @@ const handleLostItem = async (req, res) => {
   }
 };
 
+// ✅ Delete an item (only if user owns it)
+const handleDeleteItem = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const userId = req.user._id; // this comes from your auth middleware
+
+    const item = await LostFound.findById(id);
+    if (!item) {
+      return res.status(404).json({ message: "Item not found" });
+    }
+
+    // Only allow the post creator to delete it
+    if (item.userId.toString() !== userId.toString()) {
+      return res.status(403).json({ message: "Unauthorized to delete this post" });
+    }
+
+    await LostFound.findByIdAndDelete(id);
+    res.status(200).json({ message: "Post deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting item:", error);
+    res.status(500).json({ message: "Server error while deleting post" });
+  }
+};
+
 module.exports = {
   handleGetAllItems,
   handleLostItem,
+  handleDeleteItem,  
 };

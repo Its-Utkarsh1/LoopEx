@@ -13,8 +13,10 @@ const eventRouter = require("./router/event");
 const resourceRouter = require("./router/resource");
 const lostFoundRouter = require("./router/lostFound");
 
+const cron = require("node-cron");
+
 const app = express();
-const PORT = 5871;
+const PORT = process.env.PORT;
 
 // ================== Express Setup ==================
 
@@ -44,7 +46,7 @@ app.get("/", (req, res) => {
 });
 
 // Connect to MongoDB
-connectToDB("mongodb://localhost:27017/ConnectCampus")
+connectToDB(process.env.MONGO_URI)
   .then(() => console.log("Connected to MongoDB"))
   .catch(err => console.error("MongoDB connection error:", err));
 
@@ -88,6 +90,19 @@ app.get('/api/resources', async (req, res) => {
 });
 
 app.get("/lostFound", (req, res) => { res.render("lostFound"); });
+
+
+
+// Run every night at midnight (00:00)
+cron.schedule("0 0 * * *", async () => {
+  try {
+    const now = new Date();
+    const result = await Event.deleteMany({ date: { $lt: now } });
+    console.log(`🧹 Deleted ${result.deletedCount} expired events.`);
+  } catch (err) {
+    console.error("Error cleaning up expired events:", err);
+  }
+});
 
 app.listen(PORT, () => {
   console.log(`Server is Running on http://localhost:${PORT}`);

@@ -1,7 +1,10 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-dotenv.config();
+const mongoose = require("mongoose");
 
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected successfully"))
-  .catch(err => console.error("❌ MongoDB connection error:", err))
+async function connectToDB(url) {
+  return mongoose.connect(url, {
+    serverSelectionTimeoutMS: 10000,
+    // useNewUrlParser / useUnifiedTopology not needed on Mongoose 6+
+  });
+}
+
+module.exports = connectToDB;
